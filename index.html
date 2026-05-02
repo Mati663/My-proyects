@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yellow Dude — Calisthenics Coach</title>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -408,14 +408,14 @@
 
 <script>
 // ─── CONFIGURACIÓN — REEMPLAZA ESTOS DOS VALORES ───────────────────────────
-const SUPABASE_URL  = 'https://blhbdspftysxinuomjlt.supabase.co';   // ej: https://xyzxyz.supabase.co
-const SUPABASE_KEY  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJsaGJkc3BmdHlzeGludW9tamx0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc3NTA4MzksImV4cCI6MjA5MzMyNjgzOX0.9f_MY-vbeUapvdKtNQJ_RZGmSdrwGPobCq4x4TSyWYw'; // tu anon/public key
+const SUPABASE_URL  = 'TU_SUPABASE_URL';   // ej: https://xyzxyz.supabase.co
+const SUPABASE_KEY  = 'TU_SUPABASE_ANON_KEY'; // tu anon/public key
 // ───────────────────────────────────────────────────────────────────────────
 
 const isConfigured = SUPABASE_URL !== 'TU_SUPABASE_URL';
 if (isConfigured) document.getElementById('config-notice').style.display = 'none';
 
-const sb = isConfigured ? supabase.createClient(SUPABASE_URL, SUPABASE_KEY) : null;
+const sb = isConfigured ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY) : null;
 let currentUser = null;
 let state = { levels: null, sessions: [], profile: {} };
 let syncTimeout = null;
